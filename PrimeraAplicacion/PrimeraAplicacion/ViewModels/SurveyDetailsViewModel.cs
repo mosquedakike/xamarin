@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrimeraAplicacion.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
@@ -29,8 +30,9 @@ namespace PrimeraAplicacion.ViewModels
         public SurveyDetailsViewModel()
         {
             SaveCommand = new Command(() => 
-            { 
-                
+            {
+                var newSurvey = new Survey() { Name = this.Name, FavoriteFood = this.FavoriteFood };
+                MessagingCenter.Send(this, "SaveSurvey", newSurvey);
             });
         }
     }

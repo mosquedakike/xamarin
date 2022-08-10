@@ -27,7 +27,13 @@ namespace PrimeraAplicacion.ViewModels
 
         public MainPageViewModel()
         {
+            Survays = new ObservableCollection<Survey>();
             AddCommand = new Command(AddCommandExecute);
+
+            MessagingCenter.Subscribe<SurveyDetailsViewModel, Survey>(this, "SaveSurvey", (a, s) =>
+            {
+                Survays.Add(s);
+            });
         }
 
         private void AddCommandExecute()

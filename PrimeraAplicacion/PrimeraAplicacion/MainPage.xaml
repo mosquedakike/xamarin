@@ -23,9 +23,15 @@
             </Label.FormattedText>
         </Label>-->
 
-        <ListView ItemsSource="{Binding Survays}"/>
-        <Button Text="+"
-                Command="{Binding AddCommand}}"/>
+        <ListView ItemsSource="{Binding Survays}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding FavoriteFood}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+         </ListView>    
+        <Button Text="Agregar"
+                Command="{Binding AddCommand}"/>
     </StackLayout>
 
 </ContentPage>
